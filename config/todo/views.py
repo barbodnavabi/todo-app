@@ -1,7 +1,8 @@
 from django.shortcuts import render
 
+
 def index(request):
-    context ={ 
+    conext ={
 
     }
-    return render(request,'todo/index.html',context)
+    return render(request,'todo/index.html',conext)
