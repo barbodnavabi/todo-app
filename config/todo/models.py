@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.shortcuts import reverse
 class Todo(models.Model):
     name=models.CharField(("نام شما"), max_length=300)
     title=models.CharField(("عنوان"), max_length=300)
@@ -16,5 +17,5 @@ class Todo(models.Model):
     def __str__(self):
         return self.name
 
-    def get_absolute_url(self):
-        return reverse("todo_detail", kwargs={"pk": self.pk})
+    # def get_absolute_url(self):
+    #     return reverse("todo_detail", kwargs={"pk": self.pk})
