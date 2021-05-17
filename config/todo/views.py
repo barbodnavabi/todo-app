@@ -12,7 +12,7 @@ class TodoCreateView(LoginRequiredMixin,CreateView):
     success_url= reverse_lazy('index')
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["todo_list"] =  Todo.objects.all()
+        context["todo_list"] =  Todo.objects.filter(author=self.request.user)
         return context
     def form_valid(self, form):
         self.obj = form.save(commit=False)
