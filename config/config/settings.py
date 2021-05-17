@@ -5,6 +5,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-#l$9e%pl42*^u-9smqny3r*es7vg+7u!ck9)3dkoaqs3og#y47'
 
+
+
+
+LOGIN_REDIRECT_URL='index'
+LOGOUT_REDIRECT_URL='login'
+LOGIN_URL = 'login'
+
+
 DEBUG = True
 
 ALLOWED_HOSTS = []

@@ -3,6 +3,8 @@ from django.urls import reverse_lazy
 from .models import Todo
 from django.views.generic import CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from .forms import SignupForm
+from django.contrib.auth.models import User
 class TodoCreateView(LoginRequiredMixin,CreateView):
     model = Todo
     template_name = "todo/index.html"
@@ -18,10 +20,9 @@ class TodoCreateView(LoginRequiredMixin,CreateView):
         form.save()
         return super().form_valid(form)
 
-# def index(request):
-#     todo_list=Todo.objects.all()
-#     conext ={
-#         'todo_list':todo_list
 
-#     }
-#     return render(request,'todo/index.html',conext)
+class Register(CreateView):
+    model = User
+    form_class = SignupForm
+    template_name = "registration/register.html"
+    success_url = reverse_lazy('login')
